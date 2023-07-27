@@ -26,7 +26,6 @@ const ContactForm = ({ addContact }) => {
   const handleChange = e => {
   setState ((prevState) => ({...prevState, [e.target.name]: e.target.value}));
   };
-  console.log(state);
 
   return (
     <form onSubmit={handleSubmit}>
