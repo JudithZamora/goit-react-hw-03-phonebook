@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const ContactForm = ({ addContact }) => {
-  const [state, setState] = useState({name: '', number: ''});
-  const [contacts, setContacts] = useState([]);
-
-  useEffect(() => {
-    const storedContacts = localStorage.getItem('contacts');
-    if (storedContacts) {
-      setContacts(JSON.parse(storedContacts));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  const [state, setState] = useState({ name: '', number: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addContact(state);
-    
+
     setState({ name: '', number: '' });
   };
 
-  const handleChange = e => {
-  setState ((prevState) => ({...prevState, [e.target.name]: e.target.value}));
+  const handleChange = (e) => {
+    setState((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -55,7 +43,7 @@ const ContactForm = ({ addContact }) => {
 };
 
 ContactForm.propTypes = {
-  addContact: PropTypes.func.isRequired,
+  addContact: PropTypes.func.isRequired
 };
 
 export default ContactForm;
