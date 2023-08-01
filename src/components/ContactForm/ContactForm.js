@@ -1,3 +1,4 @@
+// ContactForm.js
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,6 @@ const ContactForm = ({ addContact }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addContact(state);
-
     setState({ name: '', number: '' });
   };
 
@@ -43,7 +43,7 @@ const ContactForm = ({ addContact }) => {
 };
 
 ContactForm.propTypes = {
-  addContact: PropTypes.func.isRequired
+  addContact: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
